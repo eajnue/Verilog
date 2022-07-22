@@ -1,0 +1,18 @@
+`timescale 10us/1us
+
+module clock_gen(Clock_5K, Clock_1Sec, Clock_1MSec);
+
+output Clock_1Sec, Clock_1MSec, Clock_5K;
+reg Clock_1Sec, Clock_1MSec, Clock_5K;
+
+begin
+
+assign Clock_1Sec=0;
+assign Clock_1MSec=0;
+assign Clock_5K=0;
+
+always #50000 Clock_1Sec=~Clock_1Sec;
+always #50 Clock_1MSec=~Clock_1MSec;
+always #10 Clock_5K=~Clock_5K;
+end
+endmodule

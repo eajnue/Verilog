@@ -1,0 +1,40 @@
+module clock_count(AM_PM, Secs_C, Mins_C, Hours_C, Clock_1Sec);
+
+output reg AM_PM;
+output reg[5:0] Secs_C, Mins_C;
+output reg[3:0] Hours_C;
+
+input wire Clock_1Sec;
+
+begin
+
+clock_gen clk_gen(, Clock_1Sec,);
+
+assign Secs_C=0;
+assign Mins_C=0;
+assign Hours_C=0;
+assign AM_PM=1;
+
+
+
+always@(negedge Clock_1Sec)begin
+
+Secs_C<=Secs_C+1;
+if(Secs_C==6'b111011) begin
+	Secs_C<=6'b000000;
+	Mins_C<=Mins_C+1;
+	if(Mins_C==6'b111011)begin
+		Mins_C<=6'b000000;
+		Hours_C<= Hours_C+1;
+		if(Hours_C==12)begin
+			AM_PM<=~AM_PM;
+			Hours_C<=1;
+			end
+		end
+	end
+end
+	
+	
+end
+
+endmodule

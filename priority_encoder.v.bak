@@ -1,0 +1,21 @@
+module priority(a,b,c,z);
+
+output[1:0] z;
+input a,b,c;
+reg[1:0] z;
+
+always @(a or b or c)
+begin
+if(c==0)
+	z=2'b11;
+else
+	if(b==0)
+		z=2'b10;
+else
+	if(a==0)
+		z=2'b01;
+else
+	z=2'b00;
+
+end
+endmodule 

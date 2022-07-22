@@ -1,0 +1,11 @@
+module tb_HDL_project();
+
+wire Clock_1Sec;
+
+wire AM_PM;
+wire[5:0] Secs_C, Mins_C;
+wire[3:0] Hours_C;
+
+clock_count clk_count(AM_PM, Secs_C, Mins_C, Hours_C, Clock_1Sec);
+
+endmodule

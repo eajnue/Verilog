@@ -1,0 +1,21 @@
+module BCD_count(clk, reset_n, q);
+
+input clk, reset_n;
+output unsigned [3:0] q;
+reg unsigned [3:0] q;
+
+always@(posedge clk or negedge reset_n)
+begin
+
+if(reset_n && (q!=9))
+begin
+q[0]<=~q[0];
+q[1]<=(~q[0])*q[1]+q[0]*(~q[1]);
+if(&q[1:0]) q[2]<=~q[2];
+if(&q[2:0]) q[3]<=~q[3];
+end
+
+else q=4'b0000;
+
+end
+endmodule

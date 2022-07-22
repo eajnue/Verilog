@@ -1,0 +1,9 @@
+`timescale 10us/1us
+
+module tb_clk();
+
+wire Clock_1Sec, Clock_1MSec, Clock_5k;
+
+clock_gen clk_g(Clock_5k, Clock_1Sec, Clock_1MSec);
+
+endmodule

@@ -1,0 +1,21 @@
+`timescale 1ns/100ps
+
+module tb_comparator();
+
+reg[2:0] a1,a2,b1,b2;
+wire y1,y2;
+
+comparator comp(a1,a2,b1,b2,y1,y2);
+
+initial
+begin
+
+	a1=3'b000; a2=3'b000; b1=3'b000; b2=3'b000;
+#10	a1=3'b001; a2=3'b000; b1=3'b001; b2=3'b000;
+#10	a1=3'b101; a2=3'b101; b1=3'b011; b2=3'b011;
+#10	a1=3'b101; a2=3'b110; b1=3'b011; b2=3'b100;
+#10	a1=3'b110; a2=3'b110; b1=3'b011; b2=3'b100;
+#10	$finish;
+
+end
+endmodule

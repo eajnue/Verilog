@@ -1,0 +1,17 @@
+module Reg8(clk, reset_n, en, d, q);//?? ??
+
+input clk, reset_n, en;//1bit input clk, reset_n, en
+input[7:0] d;//8bit input d
+output[7:0] q;//8bit output q
+wire[7:0] q;//8bit reg vlaue q
+
+D_FF dff0(clk, reset_n, d[0], en, q[0]);//D Flip Flop module instantiation
+D_FF dff1(clk, reset_n, d[1], en, q[1]);
+D_FF dff2(clk, reset_n, d[2], en, q[2]); 
+D_FF dff3(clk, reset_n, d[3], en, q[3]);
+D_FF dff4(clk, reset_n, d[4], en, q[4]);
+D_FF dff5(clk, reset_n, d[5], en, q[5]);
+D_FF dff6(clk, reset_n, d[6], en, q[6]);
+D_FF dff7(clk, reset_n, d[7], en, q[7]);
+
+endmodule

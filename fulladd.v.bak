@@ -1,0 +1,14 @@
+module fulladd(x,y,z,SUM,COUT);
+
+input x,y,z;
+output SUM,COUT;
+wire n1, n2, n3;
+
+wire SUM,COUT;
+
+
+halfadd g1(x,y,n2,n1);
+halfadd g2(n2,z,SUM,n3);
+or org(COUT,n1,n3);
+
+endmodule

@@ -1,0 +1,27 @@
+`timescale 1ns/100ps
+
+module tb_Reg8();
+
+reg clk, reset_n, en;
+reg[7:0] d;
+wire[7:0] q;
+
+Reg8 reg8(clk, reset_n, en, d, q);
+
+initial
+begin
+	clk=0;reset_n=1;en=0;d=8'b01001000;
+#10	clk=1;
+#10	clk=0;reset_n=0;d=8'b00001001;
+#10	clk=1;
+#10	clk=0;reset_n=1;en=1;d=8'b01011100;
+#10	clk=1;
+#10	clk=0;d=8'b00010001;
+#10	clk=1;
+#10	clk=0;en=0;d=8'b01101100;
+#10	clk=1;
+#10	clk=0;d=8'b01001100;
+#10	clk=1;
+
+end
+endmodule

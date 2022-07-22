@@ -1,0 +1,27 @@
+`timescale 1ns/100ps
+
+module tb_alu();
+
+reg[7:0] a,b;
+wire[7:0] z;
+reg[2:0] s;
+
+alu ALU(a,b,s,z); 
+
+initial 
+
+begin
+
+	a=5;b=3;s=3'b000;
+#10	s=3'b001;
+#10	s=3'b010;
+#10	s=3'b011;
+#10	s=3'b100;
+#10	s=3'b101;
+#10	s=3'b110;
+#10	s=3'b111;
+
+end
+
+endmodule
+

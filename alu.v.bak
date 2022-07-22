@@ -1,0 +1,23 @@
+module alu(a,b,s,z);
+
+input[7:0] a,b;
+input[2:0] s;
+output[7:0] z;
+reg[7:0] z;
+
+always@(a or b or s or z)
+
+begin
+
+case(s)
+	3'b000: z<=8'b00000000;
+	3'b001: z<=b-a;
+	3'b010: z<=a-b;
+	3'b011: z<=a+b;
+	3'b100: z<=a^b;
+	3'b101: z<=a|b;
+	3'b110: z<=a&b;
+	3'b111: z<=8'b11111111;
+endcase
+end
+endmodule

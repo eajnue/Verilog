@@ -1,0 +1,36 @@
+module Shift8(clk,reset_n,en,dir,ld,sd,d,q);
+
+input clk,reset_n,en,dir,ld,sd;
+input[7:0] d;
+output[7:0] q;
+reg[7:0] q;
+
+always@(posedge clk or negedge reset_n)
+
+begin
+
+if(~reset_n)//reset_n=0
+	q=8'b00000000;
+else//reset_n=1
+begin
+	if(ld)//ld=1
+	q=d; 
+
+	else if(en)//en=1
+		begin 
+			if(dir==1)//shift right
+			begin 
+			q[6:0]<=q[7:1];
+			q[7]=sd;
+			end
+			
+			else//shift left
+			begin
+			q[7:1]<=q[6:0];
+			q[0]=sd;
+			end
+		end
+
+end
+end
+endmodule
